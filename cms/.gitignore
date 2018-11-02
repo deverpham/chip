@@ -1,0 +1,12 @@
+core/assetss
+src/superTheme/dist
+node_modules
+yarn-error.log
+apikey
+*.zip
+*.db
+gulpfile.js
+src
+.nyc_output
+coverage
+*.test

@@ -1,0 +1,24 @@
+<%- await include('template/header.ejs') %>
+<%- await tableView({
+
+    name: 'Plugin',
+    items: plugins,
+    fields: [
+        'name', 
+        'version', 
+        'description', 
+        'author', 
+        'active'],
+    addons: [{
+        name: 'action',
+        each: function(item) {
+            const action = item.active? 'disable' : 'active';
+            return link({
+                name: action,
+                link: '/admin/plugin/' + item.name+ '?action=' +action 
+            })
+        }
+    }]
+}) %>
+
+<%-await include('template/footer.ejs') %>

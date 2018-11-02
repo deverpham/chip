@@ -1,0 +1,20 @@
+<label><%=label %></label>
+<div>
+    <% inputs.map(input => { %>
+    <input type="<%=input.type %>" id="<%= input.value %>"
+    name="<%= name %>" value="<%=input.value %>"
+    <% if (input.selected) { %>
+        checked 
+    
+    <%  } %>
+
+    <% 
+    if(input.attr) {input.attr.map(ar =>  { %>
+        <%=ar.key %> = "<%=ar.value%>"
+    <% }) } %>
+    >
+
+    <label for="<%= input.value %>" class='mr-5' ><%=input.value %></label>
+    
+  <% }) %>
+</div>

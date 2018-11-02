@@ -1,0 +1,12 @@
+<%- attrForm %>
+<%- tableView({
+    items : attrs,
+    fields: undefined,
+    name: 'list_fields',
+    addons: [{
+        name: 'delete',
+        each: function(tem) {
+            return button({name : 'delete'})
+        }
+    }]
+}) %>

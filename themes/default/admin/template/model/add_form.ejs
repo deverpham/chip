@@ -1,0 +1,8 @@
+<%
+var actionUrl = actionUrl || `/admin/${tableName}`
+ %>
+<form action="<%= actionUrl %>" method="post">
+    <legend>Add </legend>
+    <%-getDOMS(dataFields) %>
+    <button type="submit">Submit</button>
+</form>

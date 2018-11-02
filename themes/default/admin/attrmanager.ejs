@@ -1,0 +1,17 @@
+<h1>Attribute Manager</h1>
+<div>
+    <%- tableView({
+        items: posts,
+        name: 'POST_TYPE',
+        fields: undefined,
+        addons: [{
+            name: 'action',
+            each: (item) => {
+                return link({
+                    name:'detail',
+                    link: '/admin/attribute-manager/'+ item.id
+                })
+            }
+        }]
+    }) %>
+</diV>

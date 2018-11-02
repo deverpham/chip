@@ -1,0 +1,19 @@
+$menuSpacing: 2rem;
+$menuFontSize : 0.9rem;
+$isBackground: true;
+.menuSimple {
+    @if $isBackground == false {
+        background-color: transparent !important;
+    }
+    font-size: $menuFontSize !important;
+    ul {
+        li {
+            margin-left: $menuSpacing;
+            &.nav-item {
+                &.active {
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}

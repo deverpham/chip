@@ -1,0 +1,25 @@
+<nav class='m-2'>
+    <div class='row '>
+        <div class= 'col-md-2'>
+                <%- dropdown({
+                    title: 'Categories',
+                    id: 'category',
+                    childs: [
+                        'Clothes',
+                        'Shoes',
+                        'Bed Room',
+                        'How far it can be i dont know about it ahihih'
+                    ],
+                    btnStyle: 'primary'
+                })%>
+        </div>
+       <div class='col-md-8'>
+            <%- inputGroup({
+                btnName: 'Search'
+            }) %>
+       </div>
+       <div class='col-md-2'>
+           <button class='btn btn-primary btn-block'>Hello</button>
+       </div>
+    </div>
+</nav>

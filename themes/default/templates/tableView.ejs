@@ -1,0 +1,48 @@
+<% 
+    const ths = fields || Object.keys( items[0] || {})
+%>
+<div class='table-responsive mt-2'>
+    <h3 ><%= name %></h3>
+    <table class='table mt-2'>
+        <thead>
+            <tr>
+            <% ths.map(th => {
+            %>
+
+            <th>
+                <%=th %>
+            </th>
+
+            <% }) %>
+
+        <% addons.map(addon => {
+            %>
+
+            <th>
+                <%=addon.name %>
+            </th>
+
+            <% }) %>
+            </tr>
+        </thead>
+        <tbody>
+            <% items.map(async item => { %>
+                <tr>
+                <% ths.map(th => { %>
+                    <td><%=item[th] %></td>
+              <%  }) %>
+  <% 
+                    addons.map(addon => {
+                %>
+                        <td>
+                            <%- addon.each(item) %>
+                        <td>
+                <% }) %>
+                <tr>
+          <%  })%>
+
+          
+           
+        </tbody>
+    </table>
+</div>

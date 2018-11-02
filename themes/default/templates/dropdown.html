@@ -1,0 +1,10 @@
+<div class="dropdown">
+        <button class="btn btn-<%=btnStyle %> dropdown-toggle btn-block" type="button" id="<%= id %>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%=title %>
+        </button>
+        <div class="dropdown-menu animated fadeIn" aria-labelledby="<%= id %>">
+          <% childs.map(function(child)  {%>
+            <a href="#" class='dropdown-item' ><%- child %></a>
+            <% }) %>
+        </div>
+      </div>

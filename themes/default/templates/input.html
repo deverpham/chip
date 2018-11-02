@@ -1,0 +1,18 @@
+<% 
+    if(!('value' in locals)) {
+        locals.value = ''
+    }
+    if(!('attr' in locals)) {
+        locals.attr = []
+    }
+
+%>
+<div class="form-group">
+    <label for="<%=id %>"><%=label %></label>
+    <input type="<%=type %>" class="form-control" id="<%= id %>" name="<%= id %>" value ="<%=value%>" 
+    <% 
+        attr.map(ar =>  { %>
+            <%=ar.key %> = "<%=ar.value%>"
+    <% }) %>
+    >
+</div>

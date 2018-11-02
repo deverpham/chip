@@ -1,0 +1,1 @@
+function blow(a: string): string;

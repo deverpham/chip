@@ -1,0 +1,39 @@
+<div>
+    <h1>
+        <%= dataFields.name %>
+    </h1>
+    <!-- add Data-->
+    <%- await hook.do_action('MODEL_SINGLE_ADD_FORM') -%>
+    <!-- add Data-->
+    <%  if(dataFields.datasets.length > 0 ) {
+        const keys = Object.keys(dataFields.datasets[0])
+        %>
+
+    <table>
+        <tr>
+            <% keys.map(key => { %>
+            <th>
+                <%=key%>
+            </th>
+            <% }) %>
+            <th>Action</th>
+        </tr>
+        <% dataFields.datasets.map(row => { %>
+        <tr>
+            <% keys.map(key => { %>
+            <td>
+                <%= row[key]|| null %>
+            </td>
+
+            <% }) %>
+            <td>
+                <button data-id='<%= row.id %>' class='btn btn-info model_action_delete'>Delete</button>
+                <button data-id='<%= row.id %>' class='btn btn-danger model_action_edit'>Edit</button>
+            </td>
+        </tr>
+
+        <% }) %>
+
+    </table>
+    <% } %>
+</div>

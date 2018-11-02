@@ -1,0 +1,42 @@
+
+<%
+this.name = 'login form';
+const opts = {
+    name: this.name ? name : '',
+    form: this.form ? form : [],
+    action: this.actions ? action : []
+};
+
+function Item(item) {
+    this.name = item.name;
+    return {
+        render: () => {
+            return `<${item.nodeName} class = "${item.className}">${item.innerText}</${item.nodeName}>`
+        }
+    }
+}
+const item = new Item({
+    nodeName: "label",
+    innerText: "User Name",
+    className: 'text-primary'
+})
+%>
+
+<form action="">
+    <legend><%= opts.name %></legend>
+    <%-item.render() %>
+</form>
+
+----sample----
+<form action="" method="post" class="w-50 m-auto">
+  <legend><%=opts.name %></legend>
+  <div class="form-group">
+    <label For="">username</label>
+    <input type="text" class="form-control" />
+  </div>
+  <div class="form-group">
+    <label For="">password</label>
+    <input type="text" class="form-control" />
+  </div>
+  <button class="btn btn-success">Login</button>
+</form>
