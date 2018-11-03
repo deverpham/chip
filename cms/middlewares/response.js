@@ -1,13 +1,6 @@
-const ejs = require('ejs');
-
-const path = require('path');
 const {
     store
 } = require('../share')
-const {
-    theme,
-    view
-} = require('../controllers')
 const engine = store.config().get().view.engine;
 
 const render = (function () {
@@ -20,7 +13,10 @@ const render = (function () {
     }
 })()
 module.exports = function (req, res, next) {
-    res.stream = render;
+    res.stream = async function (file, data = {}) {
+        const html = await render(file, data);
+        res.write(html);
+    }
     /*
     res.stream = {
         ejs: function (filePath, payload = {}) {

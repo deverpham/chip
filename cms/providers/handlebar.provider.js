@@ -1,6 +1,6 @@
-const handlebars = require('handlebars-async')(require('handlebars'))
+const handlebars = require('handlebars')
+require('handlebars-async')(handlebars)
 const fs = require('fs');
-const path = require('path');
 class Handlebars {
     render(file, opts = {}) {
         return new Promise((resolve, reject) => {

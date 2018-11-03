@@ -4,8 +4,8 @@ const bodyParserMiddleware = require('./bodyparser')
 const CookieMiddleware = require('./cookie');
 const viewHelperMiddleware = require('./viewhelper');
 module.exports = {
-    responseMiddleware,
     hook,
+    responseMiddleware,
     viewHelperMiddleware,
     bodyParserMiddleware,
     cookieMiddleware: CookieMiddleware()

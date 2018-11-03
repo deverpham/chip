@@ -72,24 +72,24 @@ class Route {
 }
 class Render {
     constructor() {
-        this.lifeCycle = async function (req, res, next) {
+        this.lifeCycle = async function (req, res, ) {
 
-            await this.Before(req, res, next);
-            await this.Header(req, res, next);
-            await this.Content(req, res, next);
-            await this.Footer(req, res, next);
-            await this.After(req, res, next);
+            await this.Before(req, res);
+            await this.Header(req, res);
+            await this.Content(req, res);
+            await this.Footer(req, res);
+            await this.After(req, res);
             res.end();
         }
         this.hooks = {
             before: [],
             after: []
         }
-        this.Before = async (req, res, next) => {
-            await Promise.all(this.hooks.before.map(f => f(req, res, next)))
+        this.Before = async (req, res) => {
+            await Promise.all(this.hooks.before.map(f => f(req, res)))
         };
-        this.After = async (req, res, next) => {
-            await Promise.all(this.hooks.after.map(f => f(req, res, next)))
+        this.After = async (req, res) => {
+            await Promise.all(this.hooks.after.map(f => f(req, res)))
         }
         this.Header = () => {};
         this.Footer = () => {};

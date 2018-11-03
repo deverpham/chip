@@ -24,9 +24,9 @@ admin.Header = async function (req, res) {
         type: 'link',
         content: "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.min.js"
     })
-    await res.stream.ejs('admin/template/header.ejs');
+    await res.stream(view.file('templates/header.hbs'));
 }
 admin.Footer = async function (req, res) {
-    await res.stream.ejs('admin/template/footer.ejs')
+    await res.stream(view.file('templates/footer.hbs'))
 }
 module.exports = admin

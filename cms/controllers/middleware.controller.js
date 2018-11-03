@@ -5,17 +5,13 @@ class Mdware {
             hook,
             cookieMiddleware,
             responseMiddleware,
-            /*
             viewHelperMiddleware
-            */
         } = require('../middlewares')
         HANDLER.use( /*eslint-disable-line no-undef */
             hook,
             cookieMiddleware.cookieParser,
             cookieMiddleware.middleware,
-            /*
             viewHelperMiddleware,
-            */
             bodyParserMiddleware.json,
             bodyParserMiddleware.urlencoded,
             responseMiddleware

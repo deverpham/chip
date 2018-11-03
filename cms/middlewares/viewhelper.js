@@ -1,23 +1,38 @@
 const controller = require('../controllers')
 const glob = require('glob');
+const bar = require('handlebars');
+const path = require('path');
+const fs = require('fs');
 const {
     store
 } = require('../share')
 const config = store.config();
-let engine = null;
+let func = null;
 switch (config.get().view.engine) {
-    case 'ejs':
-        {}
     default:
-        {}
+        {
+            const hbs = require('handlebars');
+            func = function (req, res, next) {
+                const helpers = glob.sync(path.join(__dirname, '../views/partials') + '/*.hbs');
+                helpers.map(helper => {
+                    const name = path.basename(helper).replace('.hbs', '');
+                    const content = fs.readFileSync(helper, 'utf-8');
+                    hbs.registerHelper(name, async function (args) {
+                        await this.async();
+                        const opts = args.hash;
+                        return content;
+                    })
+                })
+                next();
+            }
+        }
 }
-
-module.exports = engine;
+module.exports = func;
 /*
 
 const ejs = require('ejs');
 const fs = require('fs');
-*/
+
 const path = require('path');
 const {
     reactEngine
@@ -39,7 +54,9 @@ function ejsRender(req, res, next) {
     next();
 }*/
 
+/*
 function react(req, res, next) {
+
     const helpers = glob.sync(controller.theme.helper().dir() + '/*.jsx');
     helpers.map(async helper => {
         const name = path.basename(helper).replace('.jsx', '');
@@ -57,3 +74,4 @@ function react(req, res, next) {
     next();
 }
 module.exports = react
+*/

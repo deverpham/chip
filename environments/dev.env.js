@@ -3,7 +3,7 @@ module.exports = {
     mode: 'development',
     name: 'development',
     server: {
-        port: 3000,
+        port: 8080,
         siteUrl: "http://localhost:3000"
     },
     database: {
