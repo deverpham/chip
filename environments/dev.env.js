@@ -17,7 +17,7 @@ module.exports = {
             idle: 1
         },
         username: "root",
-        password: "root",
+        password: "",
         database: "supercms",
         operatorsAliases: false,
         secret_key: "Let's CBD"

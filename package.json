@@ -22,8 +22,7 @@
   "devDependencies": {
     "chalk": "^2.4.1",
     "performance-now": "^2.1.0",
-    "pretty-error": "^2.1.1",
-    "usage": "^0.7.1"
+    "pretty-error": "^2.1.1"
   },
   "scripts": {
     "start": "nodemon app.js"

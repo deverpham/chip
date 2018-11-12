@@ -1,29 +1,30 @@
 const now = require('performance-now');
-const usage = require('usage');
+/*
+const usage = require('usage'); */
 
 /**
  * getHealthServer
  * @return {object}
- */
+ *//* 
 function getUsageNow() {
-    const pid = process.pid
-    return new Promise((resolve, reject) => {
-        usage.lookup(pid, {
-            keepHistory: false
-        }, function (err, result) {
-            if (err) {
-                console.log(err)
-                reject(err);
-            }
-            var memory = Math.floor(result.memory / 1000000)
-            var cpu = result.cpu;
-            resolve({
-                memory,
-                cpu
-            })
-        });
-    })
-}
+const pid = process.pid
+return new Promise((resolve, reject) => {
+    usage.lookup(pid, {
+        keepHistory: false
+    }, function (err, result) {
+        if (err) {
+            console.log(err)
+            reject(err);
+        }
+        var memory = Math.floor(result.memory / 1000000)
+        var cpu = result.cpu;
+        resolve({
+            memory,
+            cpu
+        })
+    });
+})
+} */
 /**
  * A Module to check Performance
  */
@@ -42,7 +43,7 @@ class Monitor {
     async start() {
         this.startPoint = now();
         if (this.healthCheck) {
-            await this._listenHealth();
+            //  await this._listenHealth();
         }
     }
     /**
@@ -51,7 +52,7 @@ class Monitor {
      */
     async analytic() {
         const totalTime = now() - this.startPoint;
-        const lastHealth = await getUsageNow();
+        // const lastHealth = await getUsageNow();
         if (this.previousHealth) {
             return {
                 totalTime,
